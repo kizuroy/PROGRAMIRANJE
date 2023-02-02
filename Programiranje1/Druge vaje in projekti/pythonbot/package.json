@@ -1,0 +1,64 @@
+{
+  "intents": [
+    {
+      "tag": "greetings",
+      "patterns": [
+        "Hello",
+        "Hey",
+        "How are you",
+        "hi",
+        "Whats up",
+        "Kako si",
+        "oj"
+      ],
+      "responses": [
+        "Hello!",
+        "Hey.",
+        "What can I do for you?",
+        "Hi, how are you today?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "cya",
+        "bye",
+        "see you next time",
+        "Have a good day",
+        "see ya",
+        "nasvidenje",
+        "adijo"
+      ],
+      "responses": [
+        "Bye.",
+        "Talk to you later.",
+        "CIAO!!"
+      ]
+    },
+    {
+      "tag": "name",
+      "patterns": [
+        "What is your name?",
+        "Kako ti je ime?",
+        "How do they call you?",
+        "who are you?"
+      ],
+      "responses": [
+        "My name is patricija."
+      ]
+    },
+    {
+      "tag": "intentions",
+      "patterns": [
+        "What are your intentions?",
+        "What is your goal?",
+        "why were you made"
+      ],
+      "responses": [
+        "My mission is to hunt you down...",
+        "My goal is to fuck you'r mom."
+      ]
+    }
+
+  ]
+}
