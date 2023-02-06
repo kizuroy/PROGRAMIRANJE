@@ -1,65 +1,29 @@
-import unittest
-
 class Kangaroo:
     def __init__(self):
-        self.x, self.y = 0
+        self.pos = 0
 
     def move(self, where):
-        direction = where[0]
-        travel = int(where[1:])
+        self.pos += {"N": 1j, "S": -1j, "E": 1, "W": -1}[where[0]] * int(where[1:])
 
-        if direction == 'N':
-            self.y += travel
-        elif direction == 'E':
-            self.x += travel
-        elif direction == 'S':
-            self.y 
+    def distance(self):
+        return abs(self.pos)
 
+    def travel(self, path):
+        for x in path:
+            self.move(x)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    def home(self):
+        path = []
+        x, y = int(self.pos.real), int(self.pos.imag)
+        if y:
+            path.append("{}{}".format("NS"[y > 0], abs(y)))
+        if x:
+            path.append("{}{}".format("EW"[x > 0], abs(x)))
+        return path
+            
+            
+            
+import unittest
 class TestGuugu(unittest.TestCase):
     def test_move_distance(self):
         a = Kangaroo()
