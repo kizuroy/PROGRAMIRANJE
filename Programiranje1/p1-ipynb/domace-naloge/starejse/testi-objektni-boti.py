@@ -1,39 +1,7 @@
+
+
 import unittest
 from unittest.mock import patch, MagicMock, call
-
-class Unit:
-    def __init__(self):
-        self.chip  = []
-
-    def recive(self, chip):
-        return self.chip.append(chip)
-    
-class Output:
-    def __init__(self, number):
-        super().__init__()
-        self.number = number
-    
-    def receive(self, chip):
-        super().receive(chip)
-        print("Output {}: {}".format(self.number, chip))
-
-class Bot(Unit):
-    def __init__(self):
-        super().__init__()
-        self.outputs = []
-
-    def attach(self, unit):
-        self.outputs.append(unit)
-
-    def process(self):
-        if len(self.chips) != len(self.outputs):
-            return False
-        for output, chip in zip(self.outputs, sorted(self.chips)):
-            output.receive(chip)
-        self.chips.clear()
-        return True
-
-
 class TestUnit(unittest.TestCase):
     def test_unit(self):
         a = Unit()
@@ -45,6 +13,7 @@ class TestUnit(unittest.TestCase):
         a.receive(42)
         self.assertListEqual(a.chips, [42])
         self.assertListEqual(b.chips, [])
+
 
 class TestOutput(unittest.TestCase):
     def test_hierarchy(self):
@@ -77,6 +46,7 @@ class TestOutput(unittest.TestCase):
             print_mock.assert_called_with("Output 42: 13")
             a.receive(25)
             print_mock.assert_called_with("Output 42: 25")
+
 
 class TestBot(unittest.TestCase):
     def test_hierarchy(self):
@@ -202,6 +172,7 @@ class TestAutoBot(unittest.TestCase):
 
         a11.receive.assert_called_with(1)
         a12.receive.assert_called_with(3)
+
 
 class TestReadFile(unittest.TestCase):
     def test_read_file(self):
